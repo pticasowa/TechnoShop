@@ -1,0 +1,70 @@
+10
+HAFF
+Nemiga PRO
+5500
+AMD Ryzen 7
+32
+Desktop computer
+Lenovo
+Workstation Super
+3200
+Intel core 7
+16
+Workstation
+Deepcool
+DF550SFX
+4300
+AMD Ryzen 5
+16
+Desktop computer
+HP
+FNSD7239
+2100
+AMD Ryzen 5
+16
+Desktop computer
+1
+2
+3
+4
+5
+6
+1
+2
+3
+4
+5
+6
+1
+2
+3
+4
+5
+6
+1
+2
+3
+4
+5
+6
+1
+2
+3
+4
+5
+6
+1
+2
+3
+4
+5
+6
+    String brand;
+    String model;
+    int price;
+    String processor;
+    int memory;
+    String deviceType;
+    boolean hasDiscreteGraphicsCard;
+    String bodyBrand;
+    String coolingSystem;

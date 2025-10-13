@@ -1,14 +1,21 @@
+import AllDevices.AllDevices;
+import AllDevices.DesktopComputer;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    static int countOfObjects=0;
+
     static String username;
     static int variant=0;
     static String variantString;
     static boolean stopProgram = false;
     static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         System.out.println("""
                 Hello, The hardware store TechnoShop welcomes you.
                 We have desktop computers, laptops, phones, tablets.
@@ -51,7 +58,7 @@ public class Main {
     public static void toCheckAllProducts(){
 
     }
-    public static void toChooseCertain() throws InterruptedException {
+    public static void toChooseCertain() throws InterruptedException, FileNotFoundException {
         System.out.println("Choose a type of device:\n" +
                 "1 - DesktopComputer\n" +
                 "2 - Laptop\n" +
@@ -59,7 +66,56 @@ public class Main {
                 "4 - Tablet\n");
         toChoose("ChooseTypeOfDevice");
     }
-    public static void toChooseCertainDesktopComputer() throws InterruptedException {
+    public static void toChooseCertainDesktopComputer() throws InterruptedException, FileNotFoundException {
+        String pathToFile = "Computers.txt";
+        File file = new File(pathToFile);
+        Scanner scanFile = new Scanner(file);
+        countOfObjects = scanFile.nextInt();
+        scanFile.nextLine(); //change line, because it doesn't change automatically after nextInt();
+        DesktopComputer[] computers = new DesktopComputer[countOfObjects];
+        for (int i=0;i<countOfObjects;i++){
+            computers[i] = new DesktopComputer();
+
+            if (String.valueOf(i).length() > AllDevices.getMaxNumeration()){//MaxLength needed to formating a table.
+                AllDevices.setMaxNumeration(String.valueOf(i).length());
+            }
+
+            computers[i].setBrand(scanFile.nextLine());
+            if (computers[i].getBrand().length() > AllDevices.getMaxLengthBrand()){//MaxLength needed to formating a table.
+                AllDevices.setMaxLengthBrand(computers[i].getBrand().length());
+            }
+
+            computers[i].setModel(scanFile.nextLine());
+            if (computers[i].getModel().length() > AllDevices.getMaxLengthModel()){
+                AllDevices.setMaxLengthModel(computers[i].getModel().length());
+            }
+
+            computers[i].setPrice(scanFile.nextInt());scanFile.nextLine();
+            if (String.valueOf(computers[i].getPrice()).length() > AllDevices.getMaxLengthPrice()){
+                AllDevices.setMaxLengthPrice(String.valueOf(computers[i].getPrice()).length());
+            }
+
+            computers[i].setProcessor(scanFile.nextLine());
+            if (computers[i].getProcessor().length() > AllDevices.getMaxLengthProcessor()){
+                AllDevices.setMaxLengthProcessor(computers[i].getProcessor().length());
+            }
+
+            computers[i].setMemory(scanFile.nextInt());scanFile.nextLine();
+            if (String.valueOf(computers[i].getMemory()).length() > AllDevices.getMaxLengthMemory()){
+                AllDevices.setMaxLengthMemory(String.valueOf(computers[i].getMemory()).length());
+            }
+
+            computers[i].setDeviceType(scanFile.nextLine());
+            if (computers[i].getDeviceType().length() > AllDevices.getMaxLengthDeviceType()){
+                AllDevices.setMaxLengthDeviceType(computers[i].getDeviceType().length());
+            }
+        }
+        DesktopComputer.table(countOfObjects);
+        for (int i=0;i<countOfObjects;i++){
+            computers[i].info(i);
+        }
+        //first line in file will be count of objects of class.
+
         System.out.println("Choose a device:\n" +
                 "1 - \n" +
                 "2 - \n" +
@@ -67,7 +123,7 @@ public class Main {
                 "4 - \n");
         toChoose("ChooseTypeOfDevice");
     }
-    public static void toChooseCertainLaptop() throws InterruptedException {
+    public static void toChooseCertainLaptop() throws InterruptedException, FileNotFoundException {
         System.out.println("Choose a device:" +
                 "1 - \n" +
                 "2 - \n" +
@@ -75,7 +131,7 @@ public class Main {
                 "4 - \n");
         toChoose("ChooseTypeOfDevice");
     }
-    public static void toChooseCertainSmartphone() throws InterruptedException {
+    public static void toChooseCertainSmartphone() throws InterruptedException, FileNotFoundException {
         System.out.println("Choose a device:" +
                 "1 - \n" +
                 "2 - \n" +
@@ -83,7 +139,7 @@ public class Main {
                 "4 - \n");
         toChoose("ChooseTypeOfDevice");
     }
-    public static void toChooseCertainTablet() throws InterruptedException {
+    public static void toChooseCertainTablet() throws InterruptedException, FileNotFoundException {
         System.out.println("Choose a device:" +
                 "1 - \n" +
                 "2 - \n" +
@@ -91,7 +147,7 @@ public class Main {
                 "4 - \n");
         toChoose("ChooseTypeOfDevice");
     }
-    public static void toChoose(String message) throws InterruptedException {
+    public static void toChoose(String message) throws InterruptedException, FileNotFoundException {
         while(!stopProgram){
             variantString = scanner.nextLine();
             try{
