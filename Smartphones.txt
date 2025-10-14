@@ -1,0 +1,41 @@
+4
+POCO
+M4 PRO 5G
+320
+MTK Dimensity 810
+4
+Smartphone
+6,6
+true
+2 rear + 1 front
+===============
+Xiaomi
+Redmi Note 5
+350
+Quallcomm Snapdragon 636
+4
+Smartphone
+5,99
+true
+2 rear + 1 front
+===============
+Apple
+iPhone 16 Pro
+2800
+Apple A18 Pro
+6
+Smartphone
+6,3
+false
+3 rear + 1 front
+===============
+Xiaomi
+Redmi Note 9s
+650
+Quallcomm Snapdragon 720G
+6
+Smartphone
+6,67
+true
+4 rear + 1 front
+===============

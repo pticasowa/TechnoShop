@@ -1,0 +1,41 @@
+4
+Lenovo
+L340
+1500
+AMD Ryzen 5
+16
+Laptop
+15,6
+true
+Plastic
+===============
+Asus
+TUF Gaming 15
+2500
+AMD Ryzen 5
+16
+Laptop
+15,6
+false
+Plastic
+===============
+Apple
+MacBook
+3500
+Apple M4
+16
+Laptop
+13,6
+false
+Glass
+===============
+Honor
+MagicBook
+3100
+AMD Ryzen 7
+32
+Laptop
+14,0
+false
+Glass
+===============

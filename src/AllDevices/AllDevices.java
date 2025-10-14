@@ -1,6 +1,7 @@
 package AllDevices;
 
 public class AllDevices {
+    protected static final int X = 2;//this one is for formating table
     protected String brand;
     protected String model;
     protected int price;
@@ -8,7 +9,7 @@ public class AllDevices {
     protected int memory;
     protected String deviceType;
 
-    protected static int MaxNumeration;
+    protected static int maxNumeration;
     protected static int maxLengthBrand = "brand".length();
     protected static int maxLengthModel = "model".length();
     protected static int maxLengthPrice = "price".length();
@@ -56,7 +57,7 @@ public class AllDevices {
 
 
     public static int getMaxNumeration(){
-        return MaxNumeration;
+        return maxNumeration;
     }
     public static int getMaxLengthBrand(){
         return maxLengthBrand;
@@ -77,8 +78,8 @@ public class AllDevices {
         return maxLengthDeviceType;
     }
 
-    public static void setMaxNumeration(int MaxNumeration){
-        AllDevices.MaxNumeration = MaxNumeration;
+    public static void setMaxNumeration(int maxNumeration){
+        AllDevices.maxNumeration = maxNumeration;
     }
     public static void setMaxLengthBrand(int maxLengthBrand){
         AllDevices.maxLengthBrand = maxLengthBrand;

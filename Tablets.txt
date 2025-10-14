@@ -1,0 +1,41 @@
+4
+Lenovo
+Yoga Tab
+1000
+Quallcomm Snapdragon
+6
+Tablet
+9,5
+false
+7500
+===============
+Lenovo
+Yoga Tab2
+1300
+Quallcomm Snapdragon
+8
+Tablet
+12,5
+false
+8800
+===============
+Apple
+iPad Air
+1400
+Apple A16
+6
+Tablet
+10,3
+false
+6950
+===============
+Infinix
+Super Ultra Pro Max
+750
+MTK Dimensity
+4
+Tablet
+10,5
+true
+8500
+===============

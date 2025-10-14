@@ -1,64 +1,106 @@
-10
+4
 HAFF
 Nemiga PRO
 5500
 AMD Ryzen 7
 32
 Desktop computer
+true
+HAFF
+Cooler Master
+===============
 Lenovo
 Workstation Super
 3200
 Intel core 7
 16
 Workstation
+true
+Lenovo
+Cooler Master
+===============
 Deepcool
 DF550SFX
 4300
 AMD Ryzen 5
 16
 Desktop computer
+true
+Deepcool
+Noctua
+===============
 HP
 FNSD7239
 2100
 AMD Ryzen 5
 16
 Desktop computer
+false
+HP
+Aerocool
+===============
 1
 2
 3
 4
 5
 6
+true
+8
+9
+=
 1
 2
 3
 4
 5
 6
+true
+8
+9
+=
 1
 2
 3
 4
 5
 6
+true
+8
+9
+=
 1
 2
 3
 4
 5
 6
+true
+8
+9
+=
 1
 2
 3
 4
 5
 6
+true
+8
+9
+=
 1
 2
 3
 4
 5
 6
+true
+8
+9
+=
+
+
     String brand;
     String model;
     int price;
