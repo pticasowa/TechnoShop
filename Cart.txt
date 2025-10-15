@@ -1,3 +1,4 @@
+7
 Asus
 TUF Gaming 15
 2500
@@ -5,4 +6,45 @@ AMD Ryzen 5
 16
 Laptop
 ===============
-0
+Asus
+TUF Gaming 15
+2500
+AMD Ryzen 5
+16
+Laptop
+===============
+Asus
+TUF Gaming 15
+2500
+AMD Ryzen 5
+16
+Laptop
+===============
+Asus
+TUF Gaming 15
+2500
+AMD Ryzen 5
+16
+Laptop
+===============
+Asus
+TUF Gaming 15
+2500
+AMD Ryzen 5
+16
+Laptop
+===============
+POCO
+M4 PRO 5G
+320
+MTK Dimensity 810
+4
+Smartphone
+===============
+POCO
+M4 PRO 5G
+320
+MTK Dimensity 810
+4
+Smartphone
+===============

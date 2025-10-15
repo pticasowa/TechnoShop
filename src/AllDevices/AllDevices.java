@@ -99,4 +99,14 @@ public class AllDevices {
     public static void setMaxLengthDeviceType(int maxLengthDeviceType){
         AllDevices.maxLengthDeviceType = maxLengthDeviceType;
     }
+
+    public static void table(int counter){
+        int countOfSpaces = String.valueOf(counter).length()+1; //+1 because we count length of number and point(.) after it. Example (4. - 1+1) (243. - 3+1)
+        System.out.printf("%-"+(maxNumeration+X)+"s %-"+(maxLengthBrand+X)+"s|%-"+(maxLengthModel+X)+"s|%-"+(maxLengthPrice+X)+"s|%-"+(maxLengthProcessor+X)+"s|%-"+(maxLengthMemory+X)+"s|%-"+(maxLengthDeviceType+X)+"s","","brand","model","price","processor","memory","device type");
+        System.out.println();
+    }
+    public void info(int counter){
+        System.out.printf("%-"+(maxNumeration+X)+"s %-"+(maxLengthBrand+X)+"s|%-"+(maxLengthModel+X)+"s|%-"+(maxLengthPrice+X)+"d|%-"+(maxLengthProcessor+X)+"s|%-"+(maxLengthMemory+X)+"d|%-"+(maxLengthDeviceType+X)+"s",(counter+1)+".",brand,model,price,processor,memory,deviceType);
+        System.out.println();
+    }
 }

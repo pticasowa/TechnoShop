@@ -1,3 +1,5 @@
+import AllDevices.Smartphone;
+
 import java.io.FileNotFoundException;
 
 public class Variants {
@@ -13,6 +15,11 @@ public class Variants {
         }
         else if(message=="ChooseDevice"){
             Main.dropDeviceToCart(1, typeOfDevice);
+            Main.startMenu();
+        }
+        else if(message=="PurchaseOrMenu"){
+            System.out.println("Thank you for a purchase! Waiting for you again");
+            stopProgram = true;
         }
         return stopProgram;
     }
@@ -25,6 +32,10 @@ public class Variants {
         }
         else if(message=="ChooseDevice"){
             Main.dropDeviceToCart(2, typeOfDevice);
+            Main.startMenu();
+        }
+        else if(message=="PurchaseOrMenu"){
+            Main.startMenu();
         }
         return stopProgram;
     }
@@ -37,18 +48,27 @@ public class Variants {
         }
         else if(message=="ChooseDevice"){
             Main.dropDeviceToCart(3, typeOfDevice);
+            Main.startMenu();
+        }
+        else if(message=="PurchaseOrMenu"){
+            varDefault(message);
         }
         return stopProgram;
     }
     public static boolean var4(String message, String typeOfDevice) throws InterruptedException, FileNotFoundException {
         if(message=="FirstChoise"){
-            varDefault(message);
+            Main.showCart();
+            //varDefault(message); //if 4th or other variants are not used, just use them like varDefault.
         }
         else if(message=="ChooseTypeOfDevice"){ //to Tablet
             Main.toChooseCertainTablet();
         }
         else if(message=="ChooseDevice"){
             Main.dropDeviceToCart(4, typeOfDevice);
+            Main.startMenu();
+        }
+        else if(message=="PurchaseOrMenu"){
+            varDefault(message);
         }
         return stopProgram;//if there is not this variant in current choise than method returns stopProgram = true;
     }

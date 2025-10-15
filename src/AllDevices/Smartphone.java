@@ -1,6 +1,18 @@
 package AllDevices;
 
-public class Smartphone extends AllDevices{
+public class Smartphone extends AllDevices implements MobileContractOperator{
+
+    public void hasOperatorContract(int i){
+        int contract = price/600;
+        if (contract >0){
+            System.out.println("This smartphone "+brand+" comes with "+contract+"-year contract of life:) mobile operator");
+        }
+        else{
+            System.out.println("This smartphone "+brand+" comes without mobile operator contracts");
+        }
+    }
+
+
     protected double displayDiagonal;
     protected boolean hasCharger;
     protected String valueOfCameras;

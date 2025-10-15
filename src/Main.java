@@ -46,29 +46,52 @@ public class Main {
                         "================================") {};
         }
         System.out.println("Nice to meet you, " + username + "! \n" +
-                "We can offer you to \n" +
-                "1 - Check info about all our products\n" +
+                "We can offer you to \n");
+        startMenu();
+    }
+    public static void startMenu() throws FileNotFoundException, InterruptedException {
+        System.out.println("1 - Check info about all our products\n" +
                 "2 - Choose a certain product\n" +
                 "3 - Check DemoComp\n" +
+                "4 - Show cart\n" +
                 "Any other number - Exit\n" +
                 "Just pick a number and input it.\n" +
                 "================================");
         toChoose("FirstChoise","");
     }
-    public static void toCheckDemoComp() throws InterruptedException {
+    public static void toCheckDemoComp() throws InterruptedException, FileNotFoundException {
         DemoComp demoComp = new DemoComp();
         demoComp.start();
-        System.out.println();
+        startMenu();
     }
-    public static void toCheckAllProducts(){
-
+    public static void toCheckAllProducts() throws FileNotFoundException, InterruptedException {
+        String[] pathsToFiles = {"Computers.txt","Laptops.txt","Smartphones.txt","Tablets.txt"};
+        for (String pathToFile : pathsToFiles){
+            Scanner scanFile = new Scanner(new File(pathToFile));
+            countOfObjects = scanFile.nextInt();//first line in file will be count of objects of class.
+            scanFile.nextLine(); //change line, because it doesn't change automatically after nextInt();
+            AllDevices[] cartDevices = new AllDevices[countOfObjects];
+            for (int i=0;i<countOfObjects;i++){
+                cartDevices[i] = new AllDevices();
+                toChooseCertainForAllDevices(i, cartDevices[i], scanFile);
+                while(!border.equals(scanFile.nextLine())){//without body, because body is in conditions. while they are(======= and scanFile.nextLine()) not equal -> do scanFile
+                }
+            }
+            AllDevices.table(countOfObjects);
+            for (int i=0;i<countOfObjects;i++){
+                cartDevices[i].info(i);
+            }
+            scanFile.close();//close thread after finish work with it
+        }
+        startMenu();
     }
     public static void toChooseCertain() throws InterruptedException, FileNotFoundException {
         System.out.println("Choose a type of device:\n" +
                 "1 - DesktopComputer\n" +
                 "2 - Laptop\n" +
                 "3 - Smartphone\n" +
-                "4 - Tablet\n");
+                "4 - Tablet\n"+
+                "Any other number - Exit\n");
         toChoose("ChooseTypeOfDevice","");
     }
     public static void toChooseCertainDesktopComputer() throws InterruptedException, FileNotFoundException {
@@ -171,6 +194,7 @@ public class Main {
         Smartphone.table(countOfObjects);
         for (int i=0;i<countOfObjects;i++){
             smartphones[i].info(i);
+            smartphones[i].hasOperatorContract(i);
         }
         scanFile.close();//close thread after finish work with it
         System.out.println("Choose a device (input a number)");
@@ -281,6 +305,9 @@ public class Main {
 
         Scanner scanCart = new Scanner(new File(pathToCart));
         int countOfLinesInCart=0;
+        if(scanCart.hasNextLine()){ //for skip first lane - it is count of devices.
+            scanCart.nextLine();
+        }
         while(scanCart.hasNextLine()){ //checking how many lines in cart
             countOfLinesInCart++;
             scanCart.nextLine();
@@ -288,17 +315,21 @@ public class Main {
         scanCart.close();//close reset a cursor in file
         scanCart = new Scanner(new File(pathToCart)); //add a new object. To read form start
         String[] previousCart = new String[countOfLinesInCart]; //creating array for cart lines
-        for (int i=0; i<countOfLinesInCart; i++){
+        if(scanCart.hasNextLine()){ //if file is not empty - skip first lane - it is count of devices. We need to skip this line, because we don't need to save it to array. Its current count of devices. And it must be erased(skipped and not saved)
+            scanCart.nextLine();
+        }
+        for (int i=0; i<countOfLinesInCart; i++){ //saving current cart in program memory (array previousCart[i]), because file will be cleaned after creating new object of PrintWriter. We save it without first lane(count of devices), because we skipped it earlier.
             previousCart[i] = scanCart.nextLine();
         }
         scanCart.close();
         PrintWriter cart = new PrintWriter(new File(pathToCart));//all data that were in file Cart.txt before will be erased on this line.
+        cart.println(countOfLinesInCart/7+1);//+1 because in array indexes are from 0 to 6 for one device. Therefore, 6/7=0.
         for (int i=0; i<countOfLinesInCart; i++){
             cart.println(previousCart[i]);//return saved from previous cart data to new cart.
         }
         for (int i=0; i<=numberOfDevice; i++){
             if(i==numberOfDevice){
-                for(int j=0; j<6;j++){//every object of AllDevices has 7 non static fields. we need to skip them
+                for(int j=0; j<6;j++){//every object of AllDevices has 7 non-static fields. we need to skip remaining. They will be not written to file.
                     cart.println(scanFile.nextLine());
                 }
                 cart.println(border);
@@ -312,6 +343,28 @@ public class Main {
         scanFile.close();
         System.out.println(numberOfDevice+1 + "th " + typeOfdevice + " added to cart!");
     }
-    public static void showCart(){
+    public static void showCart() throws FileNotFoundException, InterruptedException {
+        String pathToFile = "Cart.txt";
+        Scanner scanFile = new Scanner(new File(pathToFile));
+        countOfObjects = scanFile.nextInt();//first line in file will be count of objects of class.
+        scanFile.nextLine(); //change line, because it doesn't change automatically after nextInt();
+        AllDevices[] cartDevices = new AllDevices[countOfObjects];
+        for (int i=0;i<countOfObjects;i++){
+            cartDevices[i] = new AllDevices();
+            toChooseCertainForAllDevices(i, cartDevices[i], scanFile);
+            scanFile.nextLine();//this one is for =========== (border) in file
+        }
+        AllDevices.table(countOfObjects);
+        for (int i=0;i<countOfObjects;i++){
+            cartDevices[i].info(i);
+        }
+        scanFile.close();//close thread after finish work with it
+
+        System.out.println("Here is a cart with devices you chosen.\n" +
+                "Do you wanna purchase it now or maybe go to menu again?\n" +
+                "1 - Purchase\n" +
+                "2 - Go to menu\n" +
+                "Any other number - Exit\n");
+        toChoose("PurchaseOrMenu", "");
     }
 }
